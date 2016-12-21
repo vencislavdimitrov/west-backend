@@ -1,5 +1,8 @@
 package west.dao;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,9 +12,16 @@ import java.util.Locale;
 public class User {
 
     private String id;
+    @NotNull(message = "First name is mandatory")
+    @Size(min = 1, message = "First name is mandatory")
     private String firstName;
+    @NotNull(message = "Last name is mandatory")
+    @Size(min = 1, message = "Last name is mandatory")
     private String lastName;
+    @NotNull
+    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$", message = "Invalid email")
     private String email;
+    @NotNull
     private Date dob;
 
     public User(String firstName, String lastName, String email, Date dob) {

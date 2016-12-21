@@ -1,6 +1,7 @@
 package west.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import west.dao.User;
 import west.repositories.UserRepository;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/api/users", method = RequestMethod.POST)
-    public User create(@RequestBody User user) {
+    public User create(@Validated @RequestBody User user) {
         return repository.save(user);
     }
 
@@ -31,7 +32,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/api/users", method = RequestMethod.PUT)
-    public void update(@RequestBody User user) {
+    public void update(@Validated @RequestBody User user) {
         repository.save(user);
     }
 
