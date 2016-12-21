@@ -13,4 +13,5 @@ run it
 gradle bootRun
 ```
 
+MongoDB should be available to the application. The configuration is in 'src/main/resources/application.properties'
 The service will be available on localhost:8080
