@@ -1,5 +1,7 @@
 package west.dao;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -19,7 +21,7 @@ public class User {
     @Size(min = 1, message = "Last name is mandatory")
     private String lastName;
     @NotNull
-    @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$", message = "Invalid email")
+    @Email
     private String email;
     @NotNull
     private Date dob;
